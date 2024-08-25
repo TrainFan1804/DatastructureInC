@@ -1,6 +1,8 @@
 #ifndef CORE_H_
 #define CORE_H_
 
-void printPointerArray(int** arr, int size);
+void setArrayValues(int* arr);
+
+void printPointerArray(int** arr);
 
 #endif

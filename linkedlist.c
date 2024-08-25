@@ -8,18 +8,7 @@
 #include <stdio.h>
 #include "core.h"
 
-const int SIZE = 10;
-
-// set the values of the data array to 0 to be sure they are not random
-// numbers
-void setValuesZero(int* arr)
-{
-	int i;
-	for (i = 0; i < SIZE; i++)
-	{
-		arr[i] = i;
-	}
-}
+extern int SIZE;
 
 // create a "link" between the data array and the pointer array
 void createPointerLinkToData(int* dataArr, int** pointerArr)
@@ -49,15 +38,15 @@ int main()
 	int* pointer[SIZE+1];
 	int data[SIZE]; 
 
-	setValuesZero(data);
+	setArrayValues(data);
 	createPointerLinkToData(data, pointer);
 
 	data[SIZE / 2] = 99; 
-	printPointerArray(pointer, SIZE);
+	printPointerArray(pointer);
 
     printf("\n");
     removeIndex(pointer, 3);
     replaceAt(pointer, 7, 69);
-    printPointerArray(pointer, SIZE);
+    printPointerArray(pointer);
 	return 1;
 }
