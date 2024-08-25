@@ -6,7 +6,7 @@
  * array.
  */
 #include <stdio.h>
-#include "Core.h"
+#include "core.h"
 
 const int SIZE = 10;
 
@@ -31,19 +31,6 @@ void createPointerLinkToData(int* dataArr, int** pointerArr)
 	}
 }
 
-void printArray(int** arr)
-{
-    int i;
-    for (i = 0; i < SIZE; i++)
-    {
-        if (*arr[i] < 0)
-        {
-            continue;
-        }
-        printf("%d\n", *arr[i]);
-    }
-}
-
 // this is not a "real" remove method because the value that is saved at the
 // index is just setting -1
 void removeIndex(int** head, int index)
@@ -66,7 +53,7 @@ int main()
 	createPointerLinkToData(data, pointer);
 
 	data[SIZE / 2] = 99; 
-	printArray(pointer);
+	printPointerArray(pointer, SIZE);
 
     printf("\n");
     removeIndex(pointer, 3);

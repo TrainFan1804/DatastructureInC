@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+// this is a core function that can print a array of pointer
 void printPointerArray(int** arr, int size)
 {
     int i;
