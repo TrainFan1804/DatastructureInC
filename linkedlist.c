@@ -16,7 +16,7 @@ void createPointerLinkToData(int* dataArr, int** pointerArr)
 	int i;
 	for (i = 0; i < SIZE; i++)
 	{
-		pointerArr[i] = &dataArr[i];
+		pointerArr[i] = &(*(dataArr + i));    // the same as: &dataArr[i];
 	}
 }
 

@@ -9,7 +9,7 @@ void setArrayValues(int* arr)
     int i;
     for (i = 0; i < SIZE; i++)
     {
-        arr[i] = i;
+        *(arr + i) = i;    // the same as: arr[i] = i;
     }
 }
 
@@ -23,7 +23,7 @@ void printPointerArray(int** arr)
         {
             continue;
         }
-        printf("%d\n", *arr[i]);
+        printf("%d\n", *(*arr + i));    // the same as: *arr[i]);
     }
 }
 
