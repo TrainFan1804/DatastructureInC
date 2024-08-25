@@ -6,6 +6,7 @@
  * array.
  */
 #include <stdio.h>
+#include "Core.h"
 
 const int SIZE = 10;
 
@@ -70,6 +71,6 @@ int main()
     printf("\n");
     removeIndex(pointer, 3);
     replaceAt(pointer, 7, 69);
-    printArray(pointer);
+    printPointerArray(pointer, SIZE);
 	return 1;
 }
