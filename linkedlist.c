@@ -20,11 +20,16 @@ void createPointerLinkToData(int* dataArr, int** pointerArr)
 	}
 }
 
-// this is not a "real" remove method because the value that is saved at the
-// index is just setting -1
+// now this is a real remove method
 void removeIndex(int** head, int index)
 {
-    *head[index] = -1; 
+    int i;
+    for (i = index; i < SIZE - 1; i++)
+    {
+        *(*head + i) = *(*head + i + 1);    // the same as: *head[i] = *head[i + 1];
+    }
+
+    *(*head + SIZE - 1) = -1;    // the same as: *head[SIZE - 1] = -1;
 }
 
 // place a new value at the index
@@ -35,18 +40,22 @@ void replaceAt(int** head, int index, int newValue)
 
 int main()
 {
-	int* pointer[SIZE+1];
+	int* pointer[SIZE];
 	int data[SIZE]; 
 
 	setArrayValues(data);
 	createPointerLinkToData(data, pointer);
 
+    printf("Print original array\n");
+    printPointerArray(pointer);
+
 	data[SIZE / 2] = 99; 
+    printf("\nPrint after replace mid element\n");
 	printPointerArray(pointer);
 
-    printf("\n");
     removeIndex(pointer, 3);
     replaceAt(pointer, 7, 69);
+    printf("\nPrint after remove and replace a element\n");
     printPointerArray(pointer);
 	return 1;
 }
