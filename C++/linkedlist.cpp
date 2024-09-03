@@ -9,7 +9,7 @@ private:
             int data;
             Node *next;
 
-            Node(int data) : data(data) {}    // this is also a constructor
+            Node(int _data) : data(_data) {}    // this is also a constructor
     };
 
     Node *head;
@@ -67,7 +67,7 @@ public:
         Node *current = head;
         while(current != nullptr)
         {
-            std::cout << current-> data << "\n";
+            std::cout << current->data << "\n";
             current = current->next;
         }
     }
