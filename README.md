@@ -11,7 +11,13 @@ pointer = &value;    // create a pointer that point to the address of the variab
 
 ``` c
 int arr[5];    // create a array with the lenght of 5. Each value is written after another in memory.
-// CAUTION: The values aren't set to a specifc value so at the addresses are old memory values saved!
+```
+CAUTION:If you declare an array like this the values aren't set to a specifc value so at the addresses are old memory values saved!
+
+To avoid this you can also declare an array like this:
+
+``` c
+int arr[] = {42, 69, 1337};
 ```
 
 # Arrays
