@@ -3,10 +3,7 @@
  */
 #include <stdio.h>
 
-void foo(int *value)
-{
-    printf("Address of value in foo(): %p\n", value);
-}
+void foo(int *value);
 
 int main()
 {
@@ -44,6 +41,11 @@ int main()
     int value = 42;
     printf("Address of value in main(): %p\n", &value);
     foo(&value);
-    printf("This pratice is useful when working big data");
+    printf("This pratice is useful when working big data\n");
+}
+
+void foo(int *value)
+{
+    printf("Address of value in foo(): %p\n", value);
 }
 
