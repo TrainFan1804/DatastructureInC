@@ -57,5 +57,5 @@ int main()
     replaceAt(pointer, 7, 69);
     printf("\nPrint after remove and replace a element\n");
     printPointerArray(pointer);
-	return 1;
+	return 0;
 }
