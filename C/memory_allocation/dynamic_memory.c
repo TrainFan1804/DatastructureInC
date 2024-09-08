@@ -24,6 +24,23 @@ void access()
                 *ptr,  *(ptr + 1), *(ptr + 2), *(ptr + 3));
 }
 
+void reallocate()
+{
+    printf("When you use reallocate() you get a pointer that points to a NEW"
+            " address with the allocated memory. The old allocated memory is"
+            " will be cleard\n");
+
+    int *ptr1 = malloc(sizeof(int));
+    int *ptr2 = realloc(ptr1, 2 * sizeof(int)); // it's good pratice to use
+                                                // overwrite the old pointer
+
+    printf("It's good practise to null check the new pointer because it may"
+            " happen that the memory can't be reallocated\n");
+
+    printf("You can also deallocate (free) allocated memory thats no longer needed\n");
+    free(ptr1);
+}
+
 int main()
 {
     printf("Unlike static memory, dynamic memory is allocated during runtime of"
@@ -38,5 +55,9 @@ int main()
     // ----- access memory ----- //
     printf("You can access dynamic memory like arrays via it's index.\n");
     access();
+
+    // ----- real- / deallocate memory ----- //
+    printf("You can also reallocate the reserved memory to a bigger / smaller size\n");
+    reallocate();
 }
 
