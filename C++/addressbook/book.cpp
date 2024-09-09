@@ -4,32 +4,6 @@
 
 using namespace std;
 
-class Person
-{
-private:
-    int *number;    // this is stupid but I want to learn so yeah I don't care
-    string name;
-    string mail;
-public:
-    Person(int *_number, string _name, string _mail)
-    {
-        this->number = _number;
-        this->name = _name;
-        this->mail = _mail;
-    }
-
-    void display()
-    {
-        cout << this->name << ", " << this->mail << ", ";
-        for (int i = 0; i < sizeof(this->number); i++)
-        {
-            cout << *(number + i);
-        }
-
-        cout << endl;
-    }
-};
-
 void printAddressBook()
 {
     ifstream contactFile;
