@@ -9,5 +9,14 @@ int main()
                                                 // to a file with '>'
     cerr << "Output with cerr. Isn't buffered\n";
 
+    int input;
+
+    cin >> input;
+    if (cin.fail())
+    {
+        cerr << "Error because of wrong input\n";
+        return EXIT_FAILURE;
+    }
+
     return EXIT_SUCCESS;
 }
