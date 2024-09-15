@@ -33,7 +33,7 @@ You can also print something into the terminal with `std::cerr`.
 std::cerr << "This is an error message.\n";
 ```
 
-This is usefull to seperate the default output directly into a seperate file.
+This is useful to seperate the default output directly into a seperate file.
 You can delegate the normal output with:
 
 ```

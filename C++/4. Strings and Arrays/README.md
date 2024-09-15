@@ -6,7 +6,7 @@ module from the standard libary or you can use *C-Strings* .\
 ## std::string
 
 When including *string* from the standard libary you can use the string container
-to work with strings. The module also provide some usefull methods on the string 
+to work with strings. The module also provide some useful methods on the string 
 to perform specific task easily.
 
 ```cpp
@@ -29,8 +29,8 @@ from the standard libary instead.
 
 Like strings there are multiple ways to work with arrays in C++. You can use the
 *array* or *vector* module from the standard libary or you can use *C-Arrays* instead.
-The standard libary also contains some usefull methods you can call on *array* and
-*vector* to perform some usefull actions.
+The standard libary also contains some useful methods you can call on *array* and
+*vector* to perform some useful actions.
 
 ## Array
 

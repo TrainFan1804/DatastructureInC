@@ -17,6 +17,10 @@ int var = 42;   // define and declare a variable in one line.
 This can be used to split the definition and declaration into seperate files.\
 There are several more ways to create a variable but I will not explain them.
 
+**IMPORTANT**: When define a variable you should also declare this variable with
+an default value because the compiler will **not** do this. This can lead to
+unexpected behavior.
+
 # Types
 
 I will just list all datatypes from least memory use to most memory use:
