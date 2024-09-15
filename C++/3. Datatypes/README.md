@@ -14,6 +14,7 @@ var = 42;   // declare a variable. set the value into the allocated memory.
 int var = 42;   // define and declare a variable in one line.   
 ```
 
+This can be used to split the definition and declaration into seperate files.\
 There are several more ways to create a variable but I will not explain them.
 
 # Types
@@ -66,3 +67,7 @@ constexpr int alsoVar = 20;
 `constexpr`: **Must** have a value during compiling.\
 `const`: **Can** have a value during compiling but can also be set during
 runtime, e.g. through user input.
+
+## sizeof
+
+To get the size that is occupied by the variable you can use the `sizeof` operator.

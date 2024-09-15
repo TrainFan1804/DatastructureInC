@@ -8,6 +8,10 @@ int main()
     int input;
 
     std::cin >> input;
+    /*
+     * I will no use this in this repo but you should use this always to
+     * check for valid input!
+     */
     if (std::cin.fail())
     {
         std::cerr << "Error because of wrong input\n";
