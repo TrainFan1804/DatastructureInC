@@ -18,7 +18,7 @@ struct Person
 
 /* ... */
 
-Person person{};    // you should always do this because this will initilize
+Person person {};    // you should always do this because this will initilize
                     // the struct members with default values
 Person person { "John", 42 };   // this will set the struct members directly
                                 // to these values
@@ -29,7 +29,7 @@ Person person { "John", 42 };   // this will set the struct members directly
 You can access a value by doing this:
 
 ```cpp
-Person person { "John", 42 };
+Person person{ "John", 42 };
 person.age = 30;    // you can change values directly
 person.name;
 ```
@@ -54,3 +54,24 @@ You can also define your own functions in your struct. Those functions are
 calles *methods* and can only be called by an struct type!
 
 # Enum
+
+You can create  your own enumerations. You do it like this:
+
+```cpp
+enum class Color    // you can also write enum struct
+{
+    BLUE,
+    RED,
+    GREEN,
+    YELLOW
+};
+
+/* ... */
+
+Color color { Color::RED };
+color = Color::GREEN;
+```
+
+**IMPORTANT**: You can also define a enum without *class* / *struct* keyword
+but this will make the enum accessible without the member access operator. You
+should use the *scoped enum* (with class / struct keyword)!
