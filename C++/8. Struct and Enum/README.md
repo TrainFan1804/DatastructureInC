@@ -18,6 +18,8 @@ struct Person
 
 /* ... */
 
+Person person;      // you should avoid this because the struct members will
+                    // not be initilize with any values
 Person person {};    // you should always do this because this will initilize
                     // the struct members with default values
 Person person { "John", 42 };   // this will set the struct members directly
@@ -47,6 +49,8 @@ void foo(const Person *person)
     std::cout << (*person).name << "\n";
 }
 ```
+
+**IMPORTANT**: All elements are defined *public* by default!
 
 ## Methods
 
