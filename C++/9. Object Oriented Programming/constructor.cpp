@@ -31,6 +31,18 @@ public:
     // you can overload different constructor
     Human(int age, std::string name);
 
+    Human(const Human &rhs)
+        : Human{ rhs._age, rhs._name }
+    {
+    }
+
+    Human(Human &&rhs)
+        : Human{ rhs._age, rhs._name }
+    {
+        rhs._age = 0;
+        rhs._name = "";
+    }
+
     void display()
     {
         std::cout << "Age: " << _age << "\n";
@@ -40,17 +52,29 @@ public:
 
 int main()
 {
+    std::cout << "Create object with one constructor parameter\n";
     Human firstHuman{ 20 };
     firstHuman.display();
-
-    Human secondHuman{ 20, "John" };
-    secondHuman.display();
 
     Human thirdHuman{ "Mary" };
     thirdHuman.display();
 
+    std::cout << "Create object with both constructor paramter\n";
+    Human secondHuman{ 20, "John" };
+    secondHuman.display();
+
+    std::cout << "Create object with default constructor\n";
     Human defaultHuman{};
     defaultHuman.display();
+
+    std::cout << "Create a copy\n";
+    Human copy{ thirdHuman };
+    copy.display();
+
+    std::cout << "Move values from on object to another object\n";
+    Human moved{ std::move(secondHuman) };
+    moved.display();
+    secondHuman.display();
 
     return 0;
 }

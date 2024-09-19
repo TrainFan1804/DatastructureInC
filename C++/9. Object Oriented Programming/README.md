@@ -114,7 +114,7 @@ class Foo
 {
 public:
     Foo(int var)
-        : Foo(var, "Bar")
+        : Foo{ var, "Bar" }
     {
     }
 
@@ -132,3 +132,57 @@ When you want to create a object with default values you can either set the
 attribute values in the class itself or you can use a *default* constructor.\
 **IMPORTANT**: The class contains no default constructor when you add atleast
 one custom constructor that contains atleast one argument!
+
+## Copy Constructor
+
+A copy constructor is a constructor that take a reference to an object of the
+class and create a copy of this object.
+
+```cpp
+class Bar
+{
+private:
+    int _foo;
+
+public:
+    Bar(const Bar &rhs)     // rhs stands for 'right hand side' (original is on
+                            // the right side of the copy object?! 
+        : _foo{ rhs._foo }
+    {
+    }
+};
+```
+
+When copying an object the original isn't changed in any way.\
+**IMPORTANT**: You only need to define a copy constructor when your object
+contains special member like raw pointer!
+
+## Move Constructor
+
+A move constructor is used to move values from one object to another.
+
+```cpp
+class Foo
+{
+private:
+    int _bar;
+
+public:
+    Foo(const Foo &rhs) = delete;   // disable the copy constructor
+
+    /*
+     * && make sure the object is deleting after this operation
+     */
+    Foo(Foo &&rhs)
+        : _bar{ rhs._bar }
+    {
+        rhs._bar = 0;
+    }
+};
+```
+
+When moving object values to another object the original is **cleared**.\
+**Important**: You should only implement a moving constructor when your object
+contains raw pointer! When doing this you should also overload the *move
+assignment* operator (later chapter). The compiler will create a moving 
+constructor that will handle exceptions.
