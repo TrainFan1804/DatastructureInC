@@ -1,30 +1,62 @@
 #include <iostream>
+#include <string>
 
 class Human
 {
+private:
+    int _age;
+    std::string _name;
+
 public:
-    int age;
-
     Human()
+        : Human{ 0, "Default" }
     {
-        this->age = 0;
     }
-    // you can overload different constructor
-    Human(int _age);
-};
 
-// like methods you can define constuctor outside of the belonging class
-Human::Human(int _age)
-{
-    this->age = _age;
-}
+    Human(int age)
+        : Human{ age, "Default" }
+    {
+        /* 
+         *  only need to write something in this block if you want to do
+         * something when you create an object
+         */
+    }
+    
+    // you can delegate a constructor call to another constructor
+    Human(std::string name)
+        : Human{ 20, name }
+    {
+    }
+
+    // you can overload different constructor
+    Human(int age, std::string name);
+
+    void display()
+    {
+        std::cout << "Age: " << _age << "\n";
+        std::cout << "Name: " << _name << "\n";
+    }
+};
 
 int main()
 {
-    Human firstHuman;
-    std::cout << firstHuman.age << "\n";
+    Human firstHuman{ 20 };
+    firstHuman.display();
 
-    Human secondHuman(20);
-    std::cout << secondHuman.age << "\n";
+    Human secondHuman{ 20, "John" };
+    secondHuman.display();
+
+    Human thirdHuman{ "Mary" };
+    thirdHuman.display();
+
+    Human defaultHuman{};
+    defaultHuman.display();
+
+    return 0;
 }
 
+// like methods you can define constuctor outside of the belonging class
+Human::Human(int age, std::string name)
+    :  _age{ age }, _name{ name } 
+{
+}

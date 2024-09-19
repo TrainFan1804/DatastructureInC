@@ -83,3 +83,52 @@ obj._myVar;
 std::unique_ptr<MyClass> ptr = std::make_unique<MyClass>();
 ptr->_myVar;
 ```
+
+# Constructor
+
+If you want to create a object that should contain specific values right after
+the creation you don't need to set these values by hand each time you creating
+a object. You can use a *constructor*.\
+Here is a simple example how you define a constructor:
+
+```cpp
+class Foo
+{
+private:
+    int _var;
+    
+public:
+    Foo(int var)
+        : _var{ var }
+    {
+    }
+};
+```
+
+## Delegate Constructor
+
+You can delegate one constructor call to another constructor.
+
+```cpp
+class Foo
+{
+public:
+    Foo(int var)
+        : Foo(var, "Bar")
+    {
+    }
+
+    Foo(int var, std::string str);
+};
+```
+
+**IMPORTANT**: You can **only** write a delegation constructor in the member
+initializer list! If you do this in the command block you will create a new
+object!
+
+## Default Constructor
+
+When you want to create a object with default values you can either set the
+attribute values in the class itself or you can use a *default* constructor.\
+**IMPORTANT**: The class contains no default constructor when you add atleast
+one custom constructor that contains atleast one argument!
