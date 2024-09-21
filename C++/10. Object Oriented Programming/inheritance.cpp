@@ -1,4 +1,4 @@
-// just don't use inheritance
+// just don't use inheritance because bad
 #include <iostream>
 
 class Vehicle
