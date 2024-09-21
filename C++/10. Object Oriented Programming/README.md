@@ -167,7 +167,7 @@ class Foo
 private:
     int _bar;
 
-public:
+pu gesprochen haben. Egal in welchem Alter. Sehr anständiblic:
     Foo(const Foo &rhs) = delete;   // disable the copy constructor
 
     /*
@@ -186,3 +186,23 @@ When moving object values to another object the original is **cleared**.\
 contains raw pointer! When doing this you should also overload the *move
 assignment* operator (later chapter). The compiler will create a moving 
 constructor that will handle exceptions.
+
+# Destructor
+
+The destructor controll the destruction of an object. The destructor is called
+automaticly when the object has reached his life scope!\
+You only need to define your own destructor when the object is working with
+dynamic memory that isn't handles automaticly (*RAII*). Normally thats is just
+the case when working with raw pointer.
+
+```cpp
+class Des
+{
+public:
+    ~Des(); // define a destructor
+};
+```
+
+**IMPORTANT**: When you allocate memory in a constructor and an exception is
+thrown the memory is still allocated because the destructor will **NOT** be
+called!
