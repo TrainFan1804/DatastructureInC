@@ -41,7 +41,24 @@ delete[] ptr;
 ptr = nullptr;  // set null!
 ```
 
-# CAUTION
+# Smart Pointer
 
-You should not use any of those methods that is shown in this folder because
-using raw pointer can followed by memory leaks when not using with care!
+You should use the inbuild smartpointer that will deal with memory freed by
+it's own.
+
+```cpp
+#include <memory>
+
+std::unique_ptr<int> smPtr(new int{});  // returns a pointer to an int value (saved
+                                    // in smPtr)
+std::unique_ptr<int> ptr = std::make_unique<int>(123);  // rather use this because
+                                                    // you don't need to use
+                                                    // new
+```
+
+You can work with those pointer the same was as with raw pointer!\
+**IMPORTANT**: When storing complex objects in a smart pointer you can also
+use the '->' operator!\
+**IMPORTANT**: There a multiple types of smart pointer you can use depending on
+the *ownership* that is provided.\
+You can initilize smart pointer on  arrays in the same way.
