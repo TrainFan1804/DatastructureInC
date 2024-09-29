@@ -7,6 +7,11 @@ You can either controll memory with `new` and `delete` or you can use
 usage. You should rather use smartpointer instead of new / delete but I will
 show you both.
 
+# C-Style
+
+You can use dynamic memory like you do it in C with *malloc* etc. I will not
+exlpain this further.
+
 # New and Delete
 
 ```cpp
